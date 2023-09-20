@@ -4,14 +4,14 @@ if(!isset($_SESSION['user_session'])){
 	header("Location: index.php");
 }
 include('header.php');
+include('container.php');
 include_once("db_connect.php");
 $sql = "SELECT user_id, username, password, emailaddress FROM users WHERE user_id='".$_SESSION['user_session']."'";
 $results = $conn->query($sql);
 $row = $results->fetchAll();
-include('container.php');
 ?>
 <div class="container">    
-	<div id="navbar" class="navbar-collapse collapse">
+  <div id="navbar" class="navbar-collapse collapse">
    <ul class="nav navbar-nav navbar-right">            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -23,8 +23,9 @@ include('container.php');
             </li>
           </ul>
 	</div>	
-	<div class='alert alert-success'>
+  <div class='alert alert-success'>
 		<button class='close' data-dismiss='alert'>&times;</button>
-		<br>Chào mừng bạn đã đến với trang quản lý.<br><br>
-  </div>
+		<br>page-3<br><br>
+  </div>	
+</div>
 <?php include('footer.php');?>
