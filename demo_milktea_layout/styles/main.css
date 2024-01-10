@@ -1,0 +1,1073 @@
+/*Standard CSS*/
+html, body {
+	height: 100%;
+	font-family: 'Overpass', sans-serif;
+	margin: 0;
+}
+
+*,*:after, *:before {
+  box-sizing: border-box;
+}
+
+section:not([id]) {
+  margin: 1em 0;
+  padding: 1.5em 2em;
+  background-color: #f2f2f2;
+  width: 100%;
+}
+
+section h3 {
+  margin-bottom: 0;
+}
+
+section p {
+  margin-top: 0;
+}
+
+/*main css provides margin (breathing room) for the navbar*/
+.main {
+	margin-top: 7rem;
+	min-height: 100%;
+}
+
+@media (min-width: 65em) {
+	.main {
+		margin-top: 5rem;
+		min-height: 100%;
+	}
+}
+
+
+/*container provides padding and center alignment for our content*/
+.container {
+	width: 90%;
+	margin: auto;
+}
+
+/*for mid-size screens*/
+@media (min-width: 40em) {
+	.container {
+		width: 70%;
+	}
+}
+
+/*for larger screens*/
+@media (min-width: 80em) {
+	.container {
+		width: 55%;
+		margin: auto; /* taken from http://www.w3schools.com/css/css_align.asp */
+	}
+}
+
+/*code styled for our style guide*/
+.code-block { /*border style taken from: http://www.w3schools.com/css/css_border.asp*/
+  width: 100%;
+  display: block;
+  padding: 1em 1em;
+  background-color: #fff;
+  border-style: ridge;
+  border-color: #ccc;
+}
+
+/* Headings Style */
+.header-bubbletea {
+	width: 100%;
+	height: 400px;
+	/*background-image styling taken from: https://www.w3schools.com/css/css_background.asp*/
+	background-image: url("https://media.timeout.com/images/103339808/image.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+/* HOME HEADING IMAGE HEIGHT W/ MEDIA QUERIES */
+.header-home {
+	width: 100%;
+	height: 200px;
+	background-image: url('../img/homepage/header-withlogo.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%
+}
+
+/* on a slightly bigger screen */
+@media (min-width: 33em) {
+	.header-home {
+		width: 100%;
+		height: 300px;
+		background-image: url('../img/homepage/header-withlogo.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%
+	}
+}
+
+/* on an even bigger screen (around tablet size) */
+@media (min-width: 48em) {
+	.header-home {
+		width: 100%;
+		height: 400px;
+		/* background img scr: http://citydergisi.com/wp-content/uploads/2015/11/bubble-tea-2-1024x768.jpg */
+		background-image: url('../img/homepage/header-withlogo.jpg');
+		background-repeat: no-repeat;
+		/*background-position: 50% 100%; */
+		background-size: 100%
+	}
+}
+
+/* for small laptop sizes */
+@media (min-width: 57em) {
+	.header-home {
+		width: 100%;
+		height: 500px;
+		/* background img scr: http://citydergisi.com/wp-content/uploads/2015/11/bubble-tea-2-1024x768.jpg */
+		background-image: url('../img/homepage/header-withlogo.jpg');
+		background-repeat: no-repeat;
+		/*background-position: 50% 100%; */
+		background-size: 100%
+	}
+}
+
+/* for desktops and larger */
+@media (min-width: 65em) {
+	.header-home {
+		width: 100%;
+		height: 650px;
+		/* background img scr: http://citydergisi.com/wp-content/uploads/2015/11/bubble-tea-2-1024x768.jpg */
+		background-image: url('../img/homepage/header-withlogo.jpg');
+		background-repeat: no-repeat;
+		/*background-position: 50% 100%; */
+		background-size: 100%
+	}
+}
+
+/* HEADER IMAGE FOR ALL OTHER PAGES */
+.header-img {
+	width: 100%;
+	height: 150px;
+	background-image: url('../img/homepage/header.jpg');
+	background-repeat: no-repeat;
+	/*background-position: 50% 35%;*/
+	background-size: 100%;
+}
+
+/* change width when not on mobile */
+@media (min-width: 33rem) {
+	.header-img {
+		width: 100%;
+		height: 250px;
+		background-image: url('../img/homepage/header.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+}
+
+/* HEADER TEXT */
+
+/*change text size on mobile*/
+.header-text {
+	padding-top: 5rem;
+	font-size: 24px;
+	font-weight: 400;
+	color: #be7f6b;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+}
+
+/*change text size on desktop*/
+@media (min-width: 33rem) {
+	.header-text {
+		font-size: 45px;
+		font-weight: 400;
+		color: #be7f6b;
+		text-transform: uppercase;
+		letter-spacing: 0.5rem;
+	}
+}
+
+/* SECTIONS */
+
+/* white background sections */
+.section-white {
+	background-color: #fff;
+	padding: 5rem 0;
+}
+
+/* grey background sections */
+.section-grey {
+	background-color: #f2f2f2;
+	padding: 5rem 0;
+}
+
+
+/* BUBBLETEA IMAGE SIZING */
+.bubbletea {
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+
+/* when bubbletea images are hovered, show a line at the bottom */
+a .bubbletea:hover,a .bubbletea:focus {
+	border-bottom: 3px solid #efb99f;
+	margin-bottom: -3px;
+}
+
+
+/* boxed section for profile */
+.section-box {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	padding: 2rem 0;
+}
+
+/* when profile boxes are hovered, show a border at the bottom */
+a .section-box:hover,a .section-box:focus {
+	border-bottom: 3px solid #efb99f;
+	margin-bottom: -3px;
+}
+
+/* Page Footer Style code (for when content is short from https://css-tricks.com/couple-takes-sticky-footer) */
+.footer {
+	background-color: #1f1f1f;
+	padding: 2rem;
+}
+
+.footer-text {
+	color: #636363;
+	margin-right: 2rem;
+}
+
+.site { 
+	display: flex;
+	min-height: 10vh;
+	flex-direction: column;
+ }
+
+ .site-content {
+ 	flex: 1;
+ }
+
+/* --------
+	 GRIDS 
+	------- */
+
+[class^='grid-col-'] {
+  float: left;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.grid-row::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.grid-heading {
+	color: #be7f6b;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 0.5rem;
+	margin: 0;
+	font-size: 14px;
+}
+
+.grid-description {
+	color: #5d5d5d;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 11px;
+	padding-top: 0.2rem;
+	padding-bottom: 0;
+}
+
+.price-description {
+	font-weight: 800;
+	color: #5d5d5d;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+.price-description span {
+	font-weight: 400;
+}
+
+/*-----------
+  12 COL GRID
+  -----------*/
+
+/*For mobile*/
+    [class*="grid-col-"] {
+        width: 100%;
+    }
+
+
+
+/*For mid-size screens*/
+@media screen and (min-width: 35em) {
+	.grid-col-12of12 {
+		width: 100%;
+	}
+
+	.grid-col-11of12 {
+		width: 100%;
+	}
+
+	.grid-col-10of12 {
+		width: 100%;
+	}
+
+	.grid-col-9of12 {
+		width: 100%;
+	}
+
+	.grid-col-8of12 {
+		width: 100%;
+	}
+
+	.grid-col-7of12 {
+		width: 100%;
+	}
+
+	.grid-col-6of12 {
+		width: 100%;
+	}
+
+	.grid-col-5of12 {
+		width: 100%;
+	}
+
+	.grid-col-4of12 {
+		width: 33.33%;
+	}
+
+	.grid-col-3of12 {
+		width: 33.33%;
+	}
+
+	.grid-col-2of12 {
+		width: 33.33%;
+	}
+
+	.grid-col-1of12 {
+		width: 16.66%;
+	}	
+}
+
+/* For Desktop */
+@media screen and (min-width: 50em) {
+	.grid-col-12of12 {
+		width: 100%;
+	}
+
+	.grid-col-11of12 {
+		width: 91.66%;
+	}
+
+	.grid-col-10of12 {
+		width: 83.33%;
+	}
+
+	.grid-col-9of12 {
+		width: 75%;
+	}
+
+	.grid-col-8of12 {
+		width: 66.66%;
+	}
+
+	.grid-col-7of12 {
+		width: 58.33%;
+	}
+
+	.grid-col-6of12 {
+		width: 50%;
+	}
+
+	.grid-col-5of12 {
+		width: 41.66%;
+	}
+
+	.grid-col-4of12 {
+		width: 33.33%;
+	}
+
+	.grid-col-3of12 {
+		width: 25%;
+	}
+
+	.grid-col-2of12 {
+		width: 16.66%;
+	}
+
+	.grid-col-1of12 {
+		width: 8.33%;
+	}
+}
+
+/* ------------------------
+	 INTERACTIVE ELEMENTS 
+	----------------------- */
+
+/* DEFAULT BUTTON */
+
+.button-default {
+	display: inline-block;
+	padding: 0.7rem 2rem;
+	color: #FFF;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	background-color: #efb99f;
+	border: none;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	-webkit-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+.button-default:hover, .button-default:focus {
+	background-color: #be7f6b;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* BUTTON BUBBLETEA */
+.button-bubbletea {
+	display: inline-block;
+	width: 100%;
+	padding: 0.7rem 0;
+	color: #FFF;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: #efb99f;
+	border: none;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	-webkit-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+.button-bubbletea:hover, .button-bubbletea:focus {
+	background-color: #be7f6b;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* SECONDARY NAV BUTTONS FOR BUBBLETEA */
+.button-categories {
+	position: fixed;
+	width: 100%;
+	background-color: #fff;
+	padding-top: 1rem;
+	padding-bottom: 0.5rem;
+	box-shadow: 0 0 2px 0 #F5CAC9; /* taken from: https://css-tricks.com/snippets/css/css-box-shadow/ */
+}
+
+/* SECONDARY NAV FOR BUBBLETEA CATEGORIES */
+#category-nav.hidden, #category-nav.hidden {
+	visibility: hidden;
+	display: none;
+}
+
+
+
+/* REWARD IMAGE SIZING */
+.reward {
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: auto;	
+}
+
+/* When grid-links (bubbletea descriptions) are hovered, don't show the same decoration with a border bottom */
+.grid-link:hover, .grid-link:focus {
+	text-decoration: none;
+}
+
+/* DEFAULT IN-TEXT LINK */
+a {
+	color: #be7f6b;
+	text-decoration: none;
+  	-webkit-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+a:hover, a:focus {
+	color: #be7f6b;
+	text-decoration: underline;
+}
+
+/* LABELS AND INPUTS */
+
+label {
+	font-weight: 500;
+	color: #be7f6b;
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 1rem 1rem;
+	margin: 0.5rem 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	font-weight: 400;
+	font-size: 1em;
+	color: #404041;
+}
+
+input[type=text]:focus {
+	outline-width: 0; /*taking away blue border when focus from: http://stackoverflow.com/questions/1457849/how-to-remove-the-border-highlight-on-an-input-text-element */
+	border: 2px solid #efb99f;
+}
+
+input[type="password"][name="password"] {
+	width: 100%;
+	padding: 1rem 1rem;
+	margin: 0.5rem 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	font-weight: 400;
+	font-size: 1em;
+	color: #404041;
+}
+
+textarea{
+	font-family: Overpass;
+	font-weight: 200;
+	width: 100%;
+	resize: none; /*limit stretch: http://stackoverflow.com/questions/3899463/how-can-i-prevent-the-textarea-from-stretching-beyond-his-parent-div-element-g*/
+	padding: 1rem 1rem;
+	margin: 0.5rem 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	font-weight: 400;
+	font-size: 1em;
+	color: #404041;
+}
+
+textarea:focus {
+	outline-width: 0; /*taking away blue border when focus from: http://stackoverflow.com/questions/1457849/how-to-remove-the-border-highlight-on-an-input-text-element */
+	border: 2px solid #efb99f;
+}
+
+.message-box {
+	height: 150px;
+}
+
+.form-pad {
+	padding-right: 2rem;
+}
+
+/* CHECKBOXES */
+/* css code taken from http://www.inserthtml.com/2012/06/custom-form-radio-checkbox/ */
+
+.regular-checkbox {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.regular-checkbox:active, .regular-checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 15px 10px 12px rgba(0,0,0,0.05), inset 15px 10px 12px rgba(255,255,255,0.1);
+	color: #efb99f;
+}
+
+.regular-checkbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #efb99f;
+}
+
+.checkbox-text {
+	display: block;
+	margin-top: -25px;
+	margin-left: 30px;
+	font-size: 15px;
+}
+
+/* SUBMIT & RESET BUTTON */
+.button-submit {
+	display: inline-block;
+	padding: 0.7rem 0;
+	width: 100%;
+	color: #FFF;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 0.5rem;
+	background-color: #efb99f;
+	border: none;
+	text-decoration: none;
+	 -webkit-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+.button-submit:hover, .button-submit:focus {
+	background-color: #be7f6b;
+	color: #fff;
+	text-decoration: none;
+}
+
+.button-reset {
+	display: inline-block;
+	padding: 0.7rem 0;
+	width: 100%;
+	color: #efb99f;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-align: center;
+	border: 1px solid;
+	margin: -1px;
+	border-radius: 0.5rem;
+	background-color: transparent;
+	border-color: #efb99f;
+	text-decoration: none;
+	-webkit-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+.button-reset:hover, .button-reset:focus {
+	background-color: #efb99f;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* BUTTON FOR THE HOME PAGE */
+.button-anchor {
+	display: none;
+}
+
+.button-anchor:hover, .button-anchor:focus {
+	background-color: #be7f6b;
+	color: #fff;
+	text-decoration: none;
+	
+}
+
+/*for even smaller screens*/
+@media (min-width: 48em) {
+	.button-anchor {
+		display: inline-block;
+		padding: 0.7rem 0;
+		width: 100%;
+		color: #be7f6b;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-align: center;
+		border: 1px solid;
+		margin-top: 20rem;
+		border-radius: 0.5rem;
+		background-color: transparent;
+		border-color: #be7f6b;
+		text-decoration: none;
+		-webkit-transition: background-color 0.5s ease-out;
+	  	transition: background-color 0.5s ease-out;
+	}
+}
+
+/*for smaller screens*/
+@media (min-width: 57em) {
+	.button-anchor {
+		display: inline-block;
+		padding: 0.7rem 0;
+		width: 100%;
+		color: #be7f6b;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-align: center;
+		border: 1px solid;
+		margin-top: 25rem;
+		border-radius: 0.5rem;
+		background-color: transparent;
+		border-color: #be7f6b;
+		text-decoration: none;
+		-webkit-transition: background-color 0.5s ease-out;
+	  	transition: background-color 0.5s ease-out;
+	}
+}
+
+/*for mid-size screens*/
+@media (min-width: 65em) {
+	.button-anchor {
+		display: inline-block;
+		padding: 0.7rem 0;
+		width: 100%;
+		color: #be7f6b;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-align: center;
+		border: 1px solid;
+		margin-top: 30rem;
+		border-radius: 0.5rem;
+		background-color: transparent;
+		border-color: #be7f6b;
+		text-decoration: none;
+		-webkit-transition: background-color 0.5s ease-out;
+	  	transition: background-color 0.5s ease-out;
+	}
+}
+
+/*for larger screens*/
+@media (min-width: 80em) {
+	.button-anchor {
+		display: inline-block;
+		padding: 0.7rem 0;
+		width: 100%;
+		color: #be7f6b;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-align: center;
+		border: 1px solid;
+		margin-top: 35rem;
+		border-radius: 0.5rem;
+		background-color: transparent;
+		border-color: #be7f6b;
+		text-decoration: none;
+		-webkit-transition: background-color 0.5s ease-out;
+	  	transition: background-color 0.5s ease-out;
+	}
+}
+
+/* TABLE STYLING */
+.table-summary {
+	width: 100%;
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	margin-bottom: 3rem;
+}
+
+.table-summary th {
+	text-align: left;
+	font-weight: 400;
+	color: #be7f6b;
+}
+
+.table-summary td {
+	text-align: right;
+	font-weight: 400;
+}
+
+.summary-total {
+	border-top: 3px solid #ccc;
+}
+
+/* ----------------
+	 TEXT ELEMENTS
+	--------------- */
+
+/* styling for headings*/
+.heading {
+	font-weight: 300;
+	font-size: 24px;
+	color: #BE7F6B;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.sub-heading {
+	font-weight: 300;
+	font-size: 18px;
+	color: #5d5d5d;
+	letter-spacing: 0.2em;
+	font-style: italic;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-bottom: 1em;
+}
+
+.sub-heading span {
+	font-weight: 800;
+}
+
+.reward-heading {
+	font-weight: 300;
+	font-size: 16px;
+	color: #5d5d5d;
+	letter-spacing: 0.2em;
+	font-style: italic;
+	margin-bottom: 0;
+	padding-bottom: 1em;
+	text-align: center;	
+}
+
+.intext-heading {
+	font-weight: 500;
+	color: #BE7F6B;
+	padding-top: 1em;
+}
+
+.price-heading {
+	font-weight: 300;
+	font-size: 15px;
+	color: #5d5d5d;
+	letter-spacing: 0.2em;
+	margin-top: 0;
+}
+
+.price-heading span {
+	font-weight: 800;
+}
+
+.current-border {
+	border: 3px solid;
+	color: #BE7F6B;
+}
+
+/*styling for content/parahraphs */
+.para {
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	font-size: 15px;
+}
+
+/*styling for lists*/
+ol, ul {
+	font-weight: 300;
+	letter-spacing: 0.5px;
+	font-size: 14px;
+	list-style-type: none;
+}
+
+.bullet-style:before
+{
+  content: "•";
+  color: #Efb99f;
+  display: inline-block;
+  width: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+ol
+{
+  counter-reset: i 0;
+}
+
+ol li:before{
+  content: counter(i);
+  counter-increment: i;
+  padding-right: 10px;
+  color: #Efb99f;
+  font-style: italic;
+}
+
+.numbered-style
+{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+
+/* --------------------
+	 COMBINED ELEMENTS
+	------------------- */
+
+
+/* NAVBAR */
+
+.nav {
+	width: 100%;
+	background-color: #fff;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	height: 7rem;
+	display: inline-block;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	box-shadow: 0 0 10px 1px #e2e2e2; /* taken from: https://css-tricks.com/snippets/css/css-box-shadow/ */
+}
+
+.logo {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+.logo-link {
+	color: #c29f96;
+	font-size: 14px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.logo-link:hover, .logo-link:focus {
+	color: #5d5d5d;
+	text-decoration: none;
+}
+
+.navbar {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	padding-top: 0.5rem;
+	margin: auto;
+
+}
+
+.nav-link {
+	margin-left: 2em;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #5d5d5d;
+	text-decoration: none;
+}
+
+.nav-link:last-of-type {
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.is-active {
+	color: #Be7f6b;
+	text-decoration: none;
+}
+
+@media (min-width: 65em) {
+
+
+	.nav {
+		width: 100%;
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		height: 5rem;
+		display: inline-block;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	.nav-element:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.logo {
+		width: 35%;
+		color: #c29f96;
+		font-size: 24px;
+		text-transform: uppercase;
+		text-align: left;
+		display: inline-block;
+		padding-left: 4em;
+	}
+
+	.logo:hover, .logo:focus {
+		text-decoration: none;
+	}
+
+	.navbar {
+		width: 65%;
+		display: inline-block;
+		float: right;
+		text-align: right; /* text-align right snippet taken from: http://stackoverflow.com/questions/32701920/2-divs-float-right-not-in-a-right-order */
+		padding-top: 0.5rem;
+	}
+
+	.nav-link {
+		margin-left: 3em;
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #5d5d5d;
+		text-decoration: none;
+	}
+
+	.nav-link:last-of-type {
+		margin-left: 3em;
+		margin-right: 4em;
+	}
+
+	.nav-link:hover, .nav-link:focus {
+		color: #Be7f6b;
+		text-decoration: none;
+	}
+
+	.is-active {
+		color: #Be7f6b;
+		text-decoration: none;
+	}
+
+}
+
+/*img/header styings*/
+
+img {
+	max-width: 100%;
+	height: auto;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+
+.header-bubbletea {
+	width: 100%;
+	height: 400px;
+	/*background-image styling taken from: https://www.w3schools.com/css/css_background.asp*/
+	background-image: url("https://media.timeout.com/images/103339808/image.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.header-blog {
+	width: 100%;
+	height: 400px;
+	/*background-image styling taken from: https://media.timeout.com/images/103339809/image.jpg*/
+	background-image: url("https://media.timeout.com/images/103339809/image.jpg");
+	background-repeat: no-repeat;
+	/* https://www.w3schools.com/cssref/pr_background-position.asp */
+	background-position: 50% 70%;
+	background-size: 100%;
+}
+
+/*CITATIONS STYLING*/
+.citations-body {
+	padding:2rem;
+	line-height: 25px;
+}
+
+.citations-text {
+	font-weight: 300;
+	text-indent: 40px;
+}
+
+.citations-link {
+	text-decoration: none;
+  	color: black;
+}
+
+.citations-link:hover, .citations-link:focus
+{
+  text-decoration: none;
+  color: #be7f6b;
+  /*color: #939597;*/
+}
