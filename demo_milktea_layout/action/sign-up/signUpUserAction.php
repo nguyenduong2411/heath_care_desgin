@@ -1,8 +1,7 @@
 <?php
-include_once("../common/db_connect.php");
+include_once("../common/PDOConnection.php");
 
-echo("call signUpUserAction.php");
-print_r($_POST);
+$conn = PDOConnection::getConnection();
 
 session_start();
 $userName = trim($_POST['username']);
@@ -21,7 +20,7 @@ try {
 
     $conn->beginTransaction();
 
-    $stmt->execute( array($userName, $password, $email));
+    $stmt->execute(array($userName, $password, $email));
 
     $conn->commit();
 
@@ -31,10 +30,10 @@ try {
         header('Location: /milktea/profile.html');
     }
 
-} catch(PDOExecption $e) {
+} catch(PDOException $exception) {
 
     $conn->rollback();
 
-    print "Error!: " . $e->getMessage() . "</br>";
+    throw new Exception( $exception->getMessage( ) , (int)$exception->getCode( ) );
 
 }

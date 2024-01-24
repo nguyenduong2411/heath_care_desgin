@@ -1,4 +1,4 @@
-<!-- sign in -->
+<!-- login -->
 <!doctype html>
 
 <html lang="en">
@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> <!-- Font family from Google Fonts -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<script src="./scripts/signup/signup.js"></script>
+		<script src="./scripts/login/login.js"></script>
 	</head>
 
 	<body>
@@ -25,10 +25,10 @@
         		</a>
         		<div class="navbar">
         			<a class="nav-link" href="./menu.html">THỰC ĐƠN</a>
-        			<!-- <a class="nav-link" href="./aboutus.html">About Us</a>
+					<!-- <a class="nav-link" href="./aboutus.html">About Us</a>
         			<a class="nav-link" href="./contact.html">Contact Us</a>
         			<a class="nav-link" href="./blog.html">Blog/Events</a> -->
-        			<a class="nav-link is-active" href="./profile.html">ĐĂNG NHẬP</a>
+        			<a class="nav-link is-active" href="./login.html">ĐĂNG NHẬP</a>
         		</div>
         	</div>
         </nav>
@@ -44,24 +44,21 @@
 						</div>
 						<!--Sign In-->
 						<div class="grid-col-6of12">
-							<h2 class="heading">Nhập thông tin đăng ký</h2>
-			          		<form action="./action/sign-up/signUpUserAction.php" id="sign-up-form" method="post">
-			          			<label for="username">Tên đăng nhập*</label>
-			          			<input type="text" id="username" name="username" placeholder="nvanh">
-			          			<label for="email">Địa chỉ email*</label>
-			          			<input type="text" id="email" name="email" placeholder="my-email@email.com">
+							<h2 class="heading">Thông tin đăng nhập</h2>
+			          		<form action="./action/login/loginAction.php" id="loginForm" method="post">
+			          			<label for="username">Tài khoản</label>
+			          			<input type="text" id="username" name="username">
 			          			<label for="password">Mật khẩu</label>
 			          			<input type="text" id="password" name="password">
-			          			<label for="confirm">Xác nhận lại mật khẩu</label>
-			          			<input type="text" id="confirm" name="confirm">			          			
-			          		</form>	
+							</form>	
 			          		<div class="grid-col-6of12">
-			          			<a class="button-reset" href="login.html"> Quay lại </a>
+			          			<a class="button-reset" href="index.html"> Quay lại </a>
 			          		</div>
 			          		<div class="grid-col-6of12">
-			          			<!-- <a class="button-submit" href="my-account.html"> Đăng ký </a> -->
-			          			<a class="button-submit" id="sign-up-button"> Đăng ký </a>
+			          			<!-- <a class="button-submit" href="profile.html"> Đăng nhập </a> -->
+								<a class="button-submit" id="loginBtn"> Đăng nhập </a>
 			          		</div>
+							<p class="para"><a href="sign-up.html">Bạn chưa có tài khoản ư? Hãy Đăng ký ngay nào.</a></p>
 						</div>
 						<!--Empty-->
 						<div class="grid-col-3of12">
@@ -69,8 +66,8 @@
 					</div>
 				</div>
 			</section>
-
 		</div> <!-- END OF MAIN CLASS -->
+
 		<!-- FOOTER -->
 		<footer class="footer"> 
 			<div class="container">
