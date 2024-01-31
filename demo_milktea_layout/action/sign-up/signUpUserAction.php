@@ -1,39 +1,30 @@
 <?php
-include_once("../common/PDOConnection.php");
+include('../service/UserService.php');
 
-$conn = PDOConnection::getConnection();
+use action\service\UserService;
 
-session_start();
+$error = [];
+$userService = new UserService();
+
 $userName = trim($_POST['username']);
-$password = trim($_POST['password']);
 $email    = trim($_POST['email']);
+$password = trim($_POST['password']);
 
-if(!isset($conn)) {
-    header('Location: /milktea/index.html');
+$salt = bin2hex(random_bytes(16));
+$rawPassword = $userService->makePasswordHash($password, $salt);
+
+$sqlFilePath = $_SERVER['DOCUMENT_ROOT'] . "/milktea/sql/RegisterUserAccount.sql";
+$sqlParams = [
+    'userName' => $userName,
+    'email' => $email,
+    'password' => $rawPassword,
+    'salt' => $salt,
+];
+
+$result = $userService->registerAccount($sqlFilePath, $sqlParams);
+
+if (!$result) {
+    throw new \Exception('Không thể đăng account!');
 }
 
-$sql =  "INSERT INTO users(username, password, emailaddress, created_on, last_login) VALUES (?,?,?,now(),now())";
-
-$stmt = $conn->prepare($sql);
-
-try {
-
-    $conn->beginTransaction();
-
-    $stmt->execute(array($userName, $password, $email));
-
-    $conn->commit();
-
-    $newUserId = $conn->lastInsertId();
-
-    if ($newUserId > 0) {
-        header('Location: /milktea/profile.html');
-    }
-
-} catch(PDOException $exception) {
-
-    $conn->rollback();
-
-    throw new Exception( $exception->getMessage( ) , (int)$exception->getCode( ) );
-
-}
+header('Location: /milktea/profile.html');

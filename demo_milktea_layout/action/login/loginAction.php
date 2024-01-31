@@ -1,24 +1,34 @@
 <?php
-include_once("../common/PDOConnection.php");
+include('../service/UserService.php');
 
-$conn = PDOConnection::getConnection();
+use action\service\UserService;
+
+$error = [];
+$userService = new UserService();
+
+$sysParams = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/system_parameter.ini', true);
 
 $userName = trim($_POST['username']);
 $password = trim($_POST['password']);
 
-if(isset($conn)) {
-    $sql = "SELECT user_id, password, emailaddress FROM users WHERE username='$userName'";
-    $results = $conn->query($sql);
-    $row = $results->fetchAll();
-    
-    if($row[0]['password']==$password) {
-        session_start();
-        $_SESSION['user_session'] = $row[0]['user_id'];
-        header('Location: /milktea/profile.html');
-        exit();
-    } else {
-        echo "Địa chỉ email hoặc mật khẩu không hợp lệ!";
-    }
+$sqlFilePath = $_SERVER['DOCUMENT_ROOT'] . '/milktea/sql/GetAccountByUserName.sql';
+$sqlParams = [
+    'userName' => $userName
+];
+
+$account = $userService->getAccountByUserName($sqlFilePath, $sqlParams);
+
+if (count($account) == 0) {
+    header('Location: /milktea/product-not-found.html');
+}
+
+$rawPassword = $sysParams['PASSWORD_PEPPER'] . $password . $account['salt'];
+
+if (password_verify($rawPassword, $account['password'])) {
+    session_start();
+    $_SESSION['user_session'] = $account['user_id'];
+    header('Location: /milktea/profile.html');
+    exit();
 } else {
-    echo("lỗi kết nối!");
+    echo "Địa chỉ email hoặc mật khẩu không hợp lệ!";
 }

@@ -1,4 +1,6 @@
 <?php
+namespace action\common;
+
 class Template
 {
 
