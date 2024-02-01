@@ -524,7 +524,7 @@ input[type=text]:focus {
 	border: 2px solid #efb99f;
 }
 
-input[type="password"][name="password"] {
+input[type="password"] {
 	width: 100%;
 	padding: 1rem 1rem;
 	margin: 0.5rem 0;
@@ -533,6 +533,11 @@ input[type="password"][name="password"] {
 	font-weight: 400;
 	font-size: 1em;
 	color: #404041;
+}
+
+input[type=password]:focus {
+	outline-width: 0; /*taking away blue border when focus from: http://stackoverflow.com/questions/1457849/how-to-remove-the-border-highlight-on-an-input-text-element */
+	border: 2px solid #efb99f;
 }
 
 textarea{
