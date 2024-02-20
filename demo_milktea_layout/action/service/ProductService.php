@@ -9,6 +9,7 @@ use action\common\Query;
 class ProductService
 {
     public $query;
+    
     public function __construct()
     {
         $this->query = new Query();
