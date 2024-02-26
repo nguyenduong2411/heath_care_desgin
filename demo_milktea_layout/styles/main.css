@@ -1076,3 +1076,11 @@ img {
   color: #be7f6b;
   /*color: #939597;*/
 }
+
+.form-validate-error-class {
+    color:#FF0000;  /* red */
+}
+
+.form-validate-valid-class {
+    color:#00CC00; /* green */
+}
