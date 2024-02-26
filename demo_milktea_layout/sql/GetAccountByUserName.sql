@@ -6,4 +6,5 @@ SELECT
 FROM
     accounts
 WHERE
-    username=:userName;
+    username=:userName
+    AND delete_flg=0;
