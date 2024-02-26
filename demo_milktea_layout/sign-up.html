@@ -3,83 +3,100 @@
 
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>Bubble Tea House</title>
+<head>
+	<meta charset="utf-8">
+	<title>Bubble Tea House</title>
 
-		<link href="./styles/main.css" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> <!-- Font family from Google Fonts -->
-		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<script src="./scripts/signup/signup.js"></script>
-	</head>
+	<link href="./styles/main.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link
+		href="https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet"> <!-- Font family from Google Fonts -->
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+		type="text/javascript"></script>
+	<script type="module" src="./scripts/common/message.js"></script>
+	<script src="./scripts/signup/signup.js"></script>
+</head>
 
-	<body>
+<body>
 
 
-		<!-- Navbar -->
-        <nav class="nav">
-        	<div class="nav-element">
-        		<a href="index.html" class="logo">
-        			bubble tea house
-        		</a>
-        		<div class="navbar">
-        			<a class="nav-link" href="./menu.html">THỰC ĐƠN</a>
-        			<!-- <a class="nav-link" href="./aboutus.html">About Us</a>
+	<!-- Navbar -->
+	<nav class="nav">
+		<div class="nav-element">
+			<a href="index.html" class="logo">
+				bubble tea house
+			</a>
+			<div class="navbar">
+				<a class="nav-link" href="./menu.html">THỰC ĐƠN</a>
+				<!-- <a class="nav-link" href="./aboutus.html">About Us</a>
         			<a class="nav-link" href="./contact.html">Contact Us</a>
         			<a class="nav-link" href="./blog.html">Blog/Events</a> -->
-        			<a class="nav-link is-active" href="./profile.html">ĐĂNG NHẬP</a>
-        		</div>
-        	</div>
-        </nav>
+				<a class="nav-link is-active" href="./profile.html">ĐĂNG NHẬP</a>
+			</div>
+		</div>
+	</nav>
 
-        <div class="main"> <!-- Padding for navbar -->
+	<div class="main"> <!-- Padding for navbar -->
 
-			<!--Section White-->
-			<section id="Checkout" class="section-white">
-				<div class="container">
-					<div class="grid-row">
-						<!--Empty-->
-						<div class="grid-col-3of12">
-						</div>
-						<!--Sign In-->
+		<!--Section White-->
+		<section id="Checkout" class="section-white">
+			<div class="container">
+				<div class="grid-row">
+					<!--Empty-->
+					<div class="grid-col-3of12">
+					</div>
+					<!--Sign In-->
+					<div class="grid-col-6of12">
+						<h2 class="heading">Nhập thông tin đăng ký</h2>
+						<!-- <form action="./action/sign-up/signUpUserAction.php" id="sign-up-form" method="post"> -->
+						<form id="signup-form" method="post">
+							<p>
+								<label for="username">Tên đăng nhập*</label>
+								<input type="text" id="username" name="username" placeholder="nvanh">
+								<span></span>
+							</p>
+							<p>
+								<label for="email">Địa chỉ email*</label>
+								<input type="text" id="email" name="email" placeholder="my-email@email.com">
+							</p>
+							<p>
+								<label for="password">Mật khẩu</label>
+								<input type="password" id="password" name="password">
+							</p>
+							<p>
+								<label for="confirm">Xác nhận lại mật khẩu</label>
+								<input type="password" id="confirm" name="confirm">
+							</p>
+						</form>
 						<div class="grid-col-6of12">
-							<h2 class="heading">Nhập thông tin đăng ký</h2>
-			          		<form action="./action/sign-up/signUpUserAction.php" id="sign-up-form" method="post">
-			          			<label for="username">Tên đăng nhập*</label>
-			          			<input type="text" id="username" name="username" placeholder="nvanh">
-			          			<label for="email">Địa chỉ email*</label>
-			          			<input type="text" id="email" name="email" placeholder="my-email@email.com">
-			          			<label for="password">Mật khẩu</label>
-			          			<input type="password" id="password" name="password">
-			          			<label for="confirm">Xác nhận lại mật khẩu</label>
-			          			<input type="password" id="confirm" name="confirm">			          			
-			          		</form>	
-			          		<div class="grid-col-6of12">
-			          			<a class="button-reset" href="login.html"> Quay lại </a>
-			          		</div>
-			          		<div class="grid-col-6of12">
-			          			<!-- <a class="button-submit" href="my-account.html"> Đăng ký </a> -->
-			          			<a class="button-submit" id="sign-up-button"> Đăng ký </a>
-			          		</div>
+							<a class="button-reset" href="login.html"> Quay lại </a>
 						</div>
-						<!--Empty-->
-						<div class="grid-col-3of12">
+						<div class="grid-col-6of12">
+							<!-- <a class="button-submit" href="my-account.html"> Đăng ký </a> -->
+							<a class="button-submit" id="signup-button"> Đăng ký </a>
 						</div>
 					</div>
+					<!--Empty-->
+					<div class="grid-col-3of12">
+					</div>
 				</div>
-			</section>
-
-		</div> <!-- END OF MAIN CLASS -->
-		<!-- FOOTER -->
-		<footer class="footer"> 
-			<div class="container">
-			<h3 class="sub-heading" style="color: #BE7F6B;">THÔNG TIN LIÊN HỆ</h3>
-			<a class="footer-text container">Phòng 702, Tầng 7, Tòa nhà Central Plaza, số 17 Lê Duẩn, phường Bến Nghé, quận 1, Hồ Chí Minh</a>
-			<a class="footer-text container">1900 234 518</a>
 			</div>
-		</footer>
+		</section>
 
-	</body>
+	</div> <!-- END OF MAIN CLASS -->
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="container">
+			<h3 class="sub-heading" style="color: #BE7F6B;">THÔNG TIN LIÊN HỆ</h3>
+			<a class="footer-text container">Phòng 702, Tầng 7, Tòa nhà Central Plaza, số 17 Lê Duẩn, phường Bến Nghé,
+				quận 1, Hồ Chí Minh</a>
+			<a class="footer-text container">1900 234 518</a>
+		</div>
+	</footer>
+
+</body>
 
 </html>

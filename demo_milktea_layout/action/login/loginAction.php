@@ -3,32 +3,35 @@ include('../service/UserService.php');
 
 use action\service\UserService;
 
-$error = [];
-$userService = new UserService();
+var_dump($_POST);
+var_dump($_REQUEST);
 
-$sysParams = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/system_parameter.ini', true);
+// $error = [];
+// $userService = new UserService();
 
-$userName = trim($_POST['username']);
-$password = trim($_POST['password']);
+// $sysParams = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/system_parameter.ini', true);
 
-$sqlFilePath = $_SERVER['DOCUMENT_ROOT'] . '/milktea/sql/GetAccountByUserName.sql';
-$sqlParams = [
-    'userName' => $userName
-];
+// $userName = trim($_POST['username']);
+// $password = trim($_POST['password']);
 
-$account = $userService->getAccountByUserName($sqlFilePath, $sqlParams);
+// $sqlFilePath = $_SERVER['DOCUMENT_ROOT'] . '/milktea/sql/GetAccountByUserName.sql';
+// $sqlParams = [
+//     'userName' => $userName
+// ];
 
-if (count($account) == 0) {
-    header('Location: /milktea/product-not-found.html');
-}
+// $account = $userService->getAccountByUserName($sqlFilePath, $sqlParams);
 
-$rawPassword = $sysParams['PASSWORD_PEPPER'] . $password . $account['salt'];
+// if (count($account) == 0) {
+//     header('Location: /milktea/product-not-found.html');
+// }
 
-if (password_verify($rawPassword, $account['password'])) {
-    session_start();
-    $_SESSION['user_session'] = $account['user_id'];
-    header('Location: /milktea/profile.html');
-    exit();
-} else {
-    echo "Địa chỉ email hoặc mật khẩu không hợp lệ!";
-}
+// $rawPassword = $sysParams['PASSWORD_PEPPER'] . $password . $account['salt'];
+
+// if (password_verify($rawPassword, $account['password'])) {
+//     session_start();
+//     $_SESSION['user_session'] = $account['user_id'];
+//     header('Location: /milktea/profile.html');
+//     exit();
+// } else {
+//     echo "Địa chỉ email hoặc mật khẩu không hợp lệ!";
+// }

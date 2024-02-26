@@ -2,7 +2,7 @@
 
 namespace action\service;
 
-include($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/constants.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/constants.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/milktea/action/common/Query.php');
 
 use action\common\Query;
@@ -25,13 +25,13 @@ class UserService
     }
 
     /**
-     * Get account bằng user_name
+     * Get account bằng điều kiện
      * 
      * @param string $sqlFilePath đường dẫn đến file SQL
-     * @param array $params danh chứa tham số user_name
+     * @param array $params danh chứa tham số
      * @return array danh sách thông tin account
      */
-    public function getAccountByUserName(string $sqlFilePath, array $sqlParams = [])
+    public function getAccountByConditon(string $sqlFilePath, array $sqlParams = [])
     {
         return $this->query->doSelect($sqlFilePath, $sqlParams);
     }
