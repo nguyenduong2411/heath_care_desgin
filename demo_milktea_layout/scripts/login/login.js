@@ -21,6 +21,11 @@ $("document").ready(function () {
       },
     },
     submitHandler: submitForm,
+    onfocusout: function (element) {
+      $(element).valid();
+    },
+    errorClass: "form-validate-error-class",
+    validClass: "form-validate-valid-class",
   });
   // /* Handling login functionality */
   function submitForm() {
@@ -28,30 +33,28 @@ $("document").ready(function () {
     console.log(data);
     $.ajax({
       type: "POST",
-      url: "../milktea/action/login/loginAction.php",
+      url: "../milktea/action/login/LoginAction.php",
       data: data,
       beforeSend: function () {
         console.log("sending!");
-        // $("#error").fadeOut();
-        // $("#login-btn").html(
-        //   '<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...'
-        // );
+        $( "#password_verify_msg" ).text("");
       },
       success: function (response) {
         console.log("Oop!, error");
-        if (response == "ok") {
+        if (response.status == "ok") {
           console.log("ok");
-          // $("#login_button").html('<img src="ajax-loader.gif" /> &nbsp; Signing In ...');
-          // setTimeout(' window.location.href = "welcome.php"; ',4000);
+          $( "#password_verify_msg" ).text(response.body.msg);
+          setTimeout(redirectToProfile, 2000);
         } else {
           console.log(response);
-          // $("#error").fadeIn(1000, function(){
-          // 	$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
-          // 	$("#login_button").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
-          // });
+          $( "#password_verify_msg" ).text(response.body.msg);
         }
       },
     });
     return false;
+  }
+
+  function redirectToProfile() {
+    window.location.href = "../milktea/profile.html";
   }
 });
