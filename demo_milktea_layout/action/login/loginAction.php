@@ -1,37 +1,75 @@
 <?php
-include('../service/UserService.php');
+require_once('../../setting/sqlFile.php');
 
+include('../service/UserService.php');
+include('../service/ResponseService.php');
+
+use action\service\ResponseService;
 use action\service\UserService;
 
-var_dump($_POST);
-var_dump($_REQUEST);
+$userService = new UserService();
+$responseService = new ResponseService();
 
-// $error = [];
-// $userService = new UserService();
+// Get tham số từ được submit từ form
+$userName = htmlspecialchars(trim($_POST['username']));
+$password = htmlspecialchars(trim($_POST['password']));
 
-// $sysParams = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/milktea/setting/system_parameter.ini', true);
+// Kiểm tra empty
+if (empty($userName)) {
+    $responseService->createResponse(
+        "error",
+        [
+            'msg_code' => 'E301',
+            'msg' => 'Vui lòng nhập tài khoản!'
+        ]
+    );
+}
 
-// $userName = trim($_POST['username']);
-// $password = trim($_POST['password']);
+if (empty($password)) {
+    $responseService->createResponse(
+        "error",
+        [
+            'msg_code' => 'E302',
+            'msg' => 'Vui lòng nhập mật khẩu!'
+        ]
+    );
+}
 
-// $sqlFilePath = $_SERVER['DOCUMENT_ROOT'] . '/milktea/sql/GetAccountByUserName.sql';
-// $sqlParams = [
-//     'userName' => $userName
-// ];
+$sqlParams = [
+    'userName' => $userName
+];
+$account = $userService->getAccountByConditon(GET_ACCOUNT_BY_USER_NAME, $sqlParams);
 
-// $account = $userService->getAccountByUserName($sqlFilePath, $sqlParams);
+// Trường tài khoản không tồn tại
+if (count($account) == 0) {
+    $responseService->createResponse(
+        "error",
+        [
+            'msg_code' => 'E304',
+            'msg' => 'Tài khoản hoặc mật khẩu không đúng!',
+        ]
+    );
+}
 
-// if (count($account) == 0) {
-//     header('Location: /milktea/product-not-found.html');
-// }
+$pepper = $userService->getPasswordPepper();
+$rawPassword = $pepper . $password . $account['salt'];
 
-// $rawPassword = $sysParams['PASSWORD_PEPPER'] . $password . $account['salt'];
+// Trường hợp sai mật khẩu
+$password = password_verify($rawPassword, $account['password']);
+if (!$password) {
+    $responseService->createResponse(
+        "error",
+        [
+            'msg_code' => 'E304',
+            'msg' => 'Tài khoản hoặc mật khẩu không đúng!'
+        ]
+    );
+}
 
-// if (password_verify($rawPassword, $account['password'])) {
-//     session_start();
-//     $_SESSION['user_session'] = $account['user_id'];
-//     header('Location: /milktea/profile.html');
-//     exit();
-// } else {
-//     echo "Địa chỉ email hoặc mật khẩu không hợp lệ!";
-// }
+$responseService->createResponse(
+    "ok",
+    [
+        'msg_code' => 'I300',
+        'msg' => 'Đăng nhập thành công!'
+    ]
+);
